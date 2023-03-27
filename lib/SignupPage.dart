@@ -49,23 +49,39 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                       Padding(
                         padding: const EdgeInsets.all(10.0),
-                        child: TextField(
+                        child: TextFormField(
+
                           controller: name,
+
                           decoration: InputDecoration(hintText: "username",
                               hintStyle: TextStyle(color: Colors.grey),
                               fillColor: Colors.grey[200],border: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
                               focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey))
                           ),
+                            validator: (value){
+                              if (value!.isEmpty || !RegExp(r'^[+]+$').hasMatch(value!)){
+                                return "please check your name again";
+                              }else{
+                                return null;
+                              }
+                            }
                         ),
                       ),
                       Padding(
 
                         padding: const EdgeInsets.only(left: 8.0,right: 8,top: 8),
-                        child: TextField(
+                        child: TextFormField(
+                          validator: (value){
+                            if (value!.isEmpty || !RegExp(r'^[+]+$').hasMatch(value!)){
+                              return "please check your name again";
+                            }else{
+                              return null;
+                            }
+                          },
                           controller: email,
 
 
-                          decoration: InputDecoration(hintText: "email",suffixIcon: Icon(Icons.visibility_off,color: Colors.grey,),
+                          decoration: InputDecoration(hintText: "email",
                               hintStyle: TextStyle(color: Colors.grey),
                               fillColor: Colors.grey[200],border: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
                               focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey))
@@ -74,7 +90,15 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 8.0,right: 8,top: 8),
-                        child: TextField(
+                        child: TextFormField(
+                          validator: (value){
+                            if (value!.isEmpty || !RegExp(r'^[+]+$').hasMatch(value!)){
+                              return "please check your name again";
+                            }else{
+                              return null;
+                              print("abcd");
+                            }
+                          },
                          controller: password,
                         obscureText: true,
                           decoration: InputDecoration(hintText: "Password",suffixIcon: Icon(Icons.visibility_off,color: Colors.grey,),

@@ -46,11 +46,12 @@ class _FilesState extends State<Files> {
         }) ,));
       },child:Icon(Icons.add),),
       appBar: AppBar(
-        title: Text("HELLO,$currentuser"),
+        automaticallyImplyLeading: false,
+        // title: Text("HELLO,$currentuser"),
         actions: [TextButton(onPressed: () async {
           FirebaseAuth.instance.signOut();
-          await googleSignIn.signOut();
-          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => LoginPage(),));
+          // await googleSignIn.signOut();
+          // Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => LoginPage(),));
         }, child: Text("Logout",style: TextStyle(color: Colors.white),)),],
       ),
       body:SingleChildScrollView(
@@ -77,7 +78,7 @@ class _FilesState extends State<Files> {
                       },
                       child: Container(
 
-                        height: 130,
+                        height: 150,
                         width: MediaQuery.of(context).size.width,
                         color: Colors.grey,
                         child: Row(

@@ -1,21 +1,20 @@
 
+import 'package:crud_operation2/otp.dart';
+import 'package:crud_operation2/phoneNumber.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-
 import 'LoginPage.dart';
-import 'files.dart';
-var currentuser;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-
-  );
+  await Firebase.initializeApp();
   runApp( MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  static String? verify;
+
 
 
   MyApp({super.key});
@@ -29,6 +28,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: LoginPage(),
+      routes: {
+        'otp':(context)=>otpaPage()
+      },
     );
   }
 }

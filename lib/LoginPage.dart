@@ -3,10 +3,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-import 'OtpLogin.dart';
+import 'phoneNumber.dart';
 import 'SignupPage.dart';
 import 'files.dart';
-
+var currentuser;
 final GoogleSignIn googleSignIn = GoogleSignIn();
 
 var size,width,height;
@@ -144,7 +144,7 @@ class _LoginPageState extends State<LoginPage> {
                       Divider(),
                       InkWell(
                         onTap: (){
-                          Navigator.of(context).push(MaterialPageRoute(builder: (context) => OtpLogin(),));
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context) => phoneNumber(),));
                         },
                         child: Container(
                           height: height*0.06,
